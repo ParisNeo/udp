@@ -120,16 +120,16 @@ int udp_send(udp_cfg *udp_out_configuration, void *data, int data_len)
  * \fn int udp_receive(udp_cfg *udp_out_configuration, void *data, int data_len)
  * \brief Receives data from udp port
  *
- * \param udp_out_configuration      The struct containing the udp configuration
- * \param data      The data buffer to be filled
- * \param data_len      The maximum length of the data to be received
+ * \param udp_in_configuration  The struct containing the udp configuration
+ * \param data                  The data buffer to be filled
+ * \param data_len              The maximum length of the data to be received
  * 
  * \return the number of sent bytes.
  */
-int udp_receive(udp_cfg *udp_out_configuration, void *data, int data_len)
+int udp_receive(udp_cfg *udp_in_configuration, void *data, int data_len)
 {
     int len;
-    recvfrom(udp_in_configuration.fd, (void *)data, data_len,  MSG_WAITALL, (struct sockaddr *) &udp_in_configuration->sockaddr, &len);
+    recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL, (struct sockaddr *) &udp_in_configuration->sockaddr, &len);
     return len;
 }
 
