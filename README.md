@@ -100,7 +100,8 @@ To send data to your device you can use:
 here len is the length of the data to send. If write_buf contains caracters, you may use strlen(write_buf) instead.
 
 # Complete example
-Let's write a sender receiver applicatio
+Let's write a sender receiver application.
+
 Here is a listener
 ```c
 #include<udp.h>
