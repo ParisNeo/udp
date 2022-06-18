@@ -99,7 +99,7 @@ To send data to your device you can use:
 here len is the length of the data to send. If write_buf contains caracters, you may use strlen(write_buf) instead.
 
 # Useful links
-Check out my uart library built in the same spirit as this library.
+Check out my [uart library](https://github.com/ParisNeo/uart) built in the same spirit as this library.
 
 
 
