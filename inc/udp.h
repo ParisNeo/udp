@@ -37,7 +37,7 @@ typedef struct{
 
 typedef struct{
 	int     	nb_cfg;
-	udp_cfg    	cfg[UDP_MAX_CFG];
+	udp_cfg    	udp[UDP_MAX_CFG];
 } udp_cfg_list;
 
 // Prototypes --------------------------------------------

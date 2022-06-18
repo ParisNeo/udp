@@ -38,7 +38,10 @@ void init_udp_cfg(udp_cfg * udp)
 void init_udp_cfg_list(udp_cfg_list * udp_list)
 {
     udp_list->nb_cfg = 0;
-    memset(udp_list->cfg,0, sizeof(udp_list->cfg));
+    for(int i=0;i<UDP_MAX_CFG;i++)
+    {
+        init_udp_cfg(&udp_list->udp[i]);
+    }
 }
 
 
