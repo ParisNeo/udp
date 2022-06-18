@@ -104,10 +104,11 @@ Let's write a sender receiver application.
 
 Here is a listener
 ```c
+#include<stdio.h>
 #include<udp.h>
 
 udp_cfg udp_in_configuration;
-char write_buf[256];
+char read_buf[256];
 
 int main(int argc, char ** argv)
 {
@@ -136,6 +137,7 @@ int main(int argc, char ** argv)
 
 Here is a sender
 ```c
+#include<stdio.h>
 #include<udp.h>
 
 udp_cfg udp_out_configuration;
