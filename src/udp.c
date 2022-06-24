@@ -121,19 +121,19 @@ int udp_send(udp_cfg *udp_out_configuration, void *data, int data_len)
 
 /**
  * \fn int udp_receive(udp_cfg *udp_out_configuration, void *data, int data_len)
- * \brief Receives data from udp port
+ * \brief Receives data from udp port until data_len bytes received or timeout
+ * UDP packets have a fixed size. So you need to provide a buffer at least as big as the sent data or else you may loose all the data
  *
  * \param udp_in_configuration  The struct containing the udp configuration
  * \param data                  The data buffer to be filled
  * \param data_len              The maximum length of the data to be received
  * 
- * \return the number of sent bytes.
+ * \return a structure containing the size of the received data as well as the sender address and its size.
  */
-int udp_receive(udp_cfg *udp_in_configuration, void *data, int data_len)
+udp_receive_infos udp_receive(udp_cfg *udp_in_configuration, void *data, int data_len)
 {
-    int len;
-    recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL, (struct sockaddr *) &udp_in_configuration->sockaddr, &len);
-    return len;
+    int len, addr_len;
+    udp_receive_infos infos;
+    len = recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL,  (struct sockaddr *) &infos.sender_address, &infos.socket_len);
+    return infos;
 }
-
-        
