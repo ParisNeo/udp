@@ -14,6 +14,8 @@
 #include <arpa/inet.h> 
 #include <netinet/in.h> 
 #include <stdbool.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 // Defines -----------------------------------------------
 #define UDP_MAXADDR_SIZE 		16
@@ -41,7 +43,7 @@ typedef struct{
 } udp_cfg_list;
 
 typedef struct{
-	size_t  			received_len;
+	int		  			received_len;
 	struct  sockaddr_in sender_address;
 	socklen_t 			socket_len;
 }udp_receive_infos;

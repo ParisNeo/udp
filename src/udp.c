@@ -132,8 +132,14 @@ int udp_send(udp_cfg *udp_out_configuration, void *data, int data_len)
  */
 udp_receive_infos udp_receive(udp_cfg *udp_in_configuration, void *data, int data_len)
 {
-    int len, addr_len;
     udp_receive_infos infos;
-    infos.received_len = recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL,  (struct sockaddr *) &infos.sender_address, &infos.socket_len);
+    infos.received_len = (int)recvfrom(
+                            udp_in_configuration->fd, 
+                            (void *)data, 
+                            data_len,  
+                            MSG_WAITALL,  
+                            (struct sockaddr *) &infos.sender_address, 
+                            &infos.socket_len
+                            );
     return infos;
 }
