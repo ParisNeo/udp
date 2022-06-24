@@ -134,6 +134,6 @@ udp_receive_infos udp_receive(udp_cfg *udp_in_configuration, void *data, int dat
 {
     int len, addr_len;
     udp_receive_infos infos;
-    len = recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL,  (struct sockaddr *) &infos.sender_address, &infos.socket_len);
+    infos.received_len = recvfrom(udp_in_configuration->fd, (void *)data, data_len,  MSG_WAITALL,  (struct sockaddr *) &infos.sender_address, &infos.socket_len);
     return infos;
 }
