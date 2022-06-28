@@ -8,6 +8,7 @@
  *	Provides helper tools to build udp connection .
  *
  */
+
 #include <udp.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -23,8 +24,8 @@
  */
 void init_udp_cfg(udp_cfg * udp)
 {
-    strcpy(udp->str_address, DEFAULT_UDP_ADDRESS);
-    udp->port=DEFAULT_UDP_PORT;
+    strcpy(udp->str_address, UDP_DEFAULT_ADDRESS);
+    udp->port=UDP_DEFAULT_PORT;
 }
 
 /**

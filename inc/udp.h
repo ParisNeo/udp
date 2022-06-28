@@ -25,8 +25,8 @@
 #define UDP_MAX_CFG			2
 
 // Default UDP configuration
-#define DEFAULT_UDP_ADDRESS	"172.0.0.1"
-#define DEFAULT_UDP_PORT	9601
+#define UDP_DEFAULT_ADDRESS	"127.0.0.1"
+#define UDP_DEFAULT_PORT	9601
 // Structs -----------------------------------------------
 
 typedef struct{
