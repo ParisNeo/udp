@@ -114,9 +114,17 @@ bool configure_udp_in(udp_cfg * udp)
  * 
  * \return the number of sent bytes.
  */
+
 int udp_send(udp_cfg *udp_out_configuration, void *data, int data_len)
 {
-    int num_udp_sent_bytes = sendto(udp_out_configuration->fd, (const char *)data, data_len,  MSG_CONFIRM, (const struct sockaddr *) &udp_out_configuration->sockaddr, sizeof(udp_out_configuration->sockaddr));
+    return sendto(
+                    udp_out_configuration->fd, 
+                    (const char *)data, 
+                    data_len,  
+                    MSG_CONFIRM, 
+                    (const struct sockaddr *) &udp_out_configuration->sockaddr, 
+                    sizeof(udp_out_configuration->sockaddr)
+                );
 }
 
 
